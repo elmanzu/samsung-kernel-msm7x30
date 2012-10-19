@@ -4389,12 +4389,13 @@ static int ce147_sensor_probe(const struct msm_camera_sensor_info *info,
     /* Power off the sensor */
     ce147_set_power(0);
 
-    s->s_init = ce147_sensor_init;
-    s->s_release = ce147_sensor_release;
-    s->s_config  = ce147_sensor_config;
-    s->s_camera_type = BACK_CAMERA_2D;
-    s->s_mount_angle  = 0;
-
+    s->s_init = ce147_sensor_init;
+    s->s_release = ce147_sensor_release;
+    s->s_config  = ce147_sensor_config;
+    s->s_ext_config	= ce147_sensor_ext_config;
+    s->s_camera_type = BACK_CAMERA_2D;
+    s->s_mount_angle  = 0;
+
     lp8720_init = true;
     CAMDRV_DEBUG("ce147 sensor probe successful\n");
     return rc;
